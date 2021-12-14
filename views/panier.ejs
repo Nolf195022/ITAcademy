@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style-academy.css">
+    <title>IT Academy - Panier</title>
+</head>
+<body>
+    <h1>IT Academy</h1>
+    <h2>Panier</h2>
+    <div id="buttons">
+        <% if(data){if(data.content.length>0){ %> 
+        <button onclick="location.href='/submitpanier'">Finaliser l'inscription</button>
+        <% }} %> 
+        <button onclick="location.href='/'">Retourner au catalogue de formation</button>
+    </div>
+    <div class="grid" id="grid">
+        <div class="grid-item">ID</div>
+        <div class="grid-item">Nom</div>
+        <div class="grid-item">Prix</div>
+        <div class="grid-item">Début</div>
+        <div class="grid-item">Fin</div>
+        <div class="grid-item"></div>
+        <% if(data){ %> 
+        <% for(var i = 0 ; i < data.content.length ; i++) { %>
+            <div class="grid-item"><%= data.content[i].id %></div>
+            <div class="grid-item"><%= data.content[i].name %></div>
+            <div class="grid-item"><%= data.content[i].price %></div>
+            <div class="grid-item"><%= data.content[i].start %></div>
+            <div class="grid-item"><%= data.content[i].end %></div>
+            <div class="grid-item"><button class="thin" onclick="location.href='/removestaypanier/<%=data.content[i].id%>'">Supprimer</button></div> 
+        <% }} %>
+    </div>
+</body>
+</html>

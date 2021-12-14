@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style-academy.css">
+    <title>IT Academy</title>
+</head>
+<body>
+    <h1>IT Academy</h1>
+    <h2><%= data.name %> disponibles</h2>
+    <div id="buttons">
+        <button onclick="location.href='/panier'">Voir le panier</button>
+        <% if(username){ %>
+            <button onclick="location.href='/logout'">Se déconnecter</button>
+        <% }else{ %>
+            <button onclick="location.href='/login'">Se connecter</button>
+        <% } %>    
+    </div>
+    <div class="grid" id="grid">
+        <div class="grid-item">ID</div>
+        <div class="grid-item">Nom</div>
+        <div class="grid-item">Prix</div>
+        <div class="grid-item">Début</div>
+        <div class="grid-item">Fin</div>
+        <div class="grid-item"></div>
+        <% for(var i = 0 ; i < data.content.length ; i++) { %>
+            <div class="grid-item"><%= data.content[i].id %></div>
+            <div class="grid-item"><%= data.content[i].name %></div>
+            <div class="grid-item"><%= data.content[i].price %></div>
+            <div class="grid-item"><%= data.content[i].start %></div>
+            <div class="grid-item"><%= data.content[i].end %></div>
+            <% if(subs.includes(data.content[i].id)) {%>
+                <div class="grid-item">Inscrit</div>
+            <% }else if(panier.includes(data.content[i].id)){ %>
+               <div class="grid-item"><button class="thin" onclick="location.href='/removepanier/<%=data.content[i].id%>'">Se désinscrire</button></div> 
+            <% }else{ %>
+                <div class="grid-item"><button class="thin" onclick="location.href='/addpanier/<%=data.content[i].id%>'">S'inscrire</button></div> 
+             <% } %>
+        <% } %>
+    </div>
+</body>
+</html>

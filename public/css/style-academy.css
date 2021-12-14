@@ -1,0 +1,41 @@
+h1 {
+    text-align: center;
+    color: rgb(0, 0, 121);
+}
+h2, h3, h4{
+    color: rgb(0, 0, 121);
+}
+button {
+        background-color: #949494;
+        border: none;
+        /* color: rgb(0, 110, 24); */
+        color: rgb(217, 255, 49);
+        padding: 4px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 26px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 2px;
+        font-weight:bold;
+}
+.grid {
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: minmax(25px,max-content) minmax(80px,max-content) minmax(60px,max-content) minmax(120px,max-content) minmax(120px,max-content) minmax(80px,max-content);
+    grid-gap: 4px;
+  }
+  
+.grid-item {
+    text-align: left;
+    padding: 2px;
+    font-size: 25px;
+    border-style: solid; 
+    border-width: 1px;
+    border-color: lightgray;
+  }
+  .thin{
+    font-size: 20px;
+    font-weight:normal;
+  }
